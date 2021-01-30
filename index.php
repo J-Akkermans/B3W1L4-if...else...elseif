@@ -6,10 +6,19 @@
     <style>
 
         h1{
+            display: block;
+            display: flex;
+            height: 70vh;
+            justify-content:center;
+            align-items: center;
             font-size: 50px;
+            font-family: 'Potta One', cursive;
+            color: white;
         }
     </style>
     <title>Time</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
 </head>
 <body>
 <h1> 
