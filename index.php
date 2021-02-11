@@ -1,3 +1,24 @@
+<?PHP 
+$bgi = "";
+$content = "";
+date_default_timezone_set('Europe/Amsterdam');
+$time = date("H");
+if ($time>="6" AND $time<"12"){
+    $content = "Goede morgen! <br> Het is nu";
+    $bgi = "morning";
+}else if ($time>="12" AND $time<"18"){
+    $content = "Goede middag! <br> Het is nu";
+    $bgi = "afternoon";
+}else if ($time>="18" AND $time<"23"){
+    $content = "Goede Avond! <br> Het is nu";
+    echo "Het is nu ", date("H:i");
+    $bgi = "night";
+}else if ($time>="0" AND $time<"6"){
+    $content = "Goede Nacht! <br> Het is nu";
+    $bgi = "evening";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,38 +34,18 @@
             align-items: center;
             font-size: 50px;
             font-family: 'Potta One', cursive;
-            color: white;
+            color: black;
         }
     </style>
     <title>Time</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url(img/<?php echo $bgi;?>.png)">
 <h1> 
-    <?php 
-        date_default_timezone_set('Europe/Amsterdam');
-        $time = date("H");
-        $test = "";
-        if ($time>="6" AND $time<"12"){
-            echo "Goede morgen! <br>";
-            echo "Het is nu ", date("H:i");
-            echo "<body style='background-image: url(img/morning.png)'>";
-        }else if ($time>="12" AND $time<"18"){
-            echo "Goede middag! <br>";
-            echo "Het is nu ", date("H:i");
-            echo "<body style='background-image: url(img/afternoon.png)'>";
-        }else if ($time>="18" AND $time<"23"){
-            echo "Goede Avond! <br>";
-            echo "Het is nu ", date("H:i");
-            echo "<body style='background-image: url(img/night.png)'>";
-        }else if ($time>="0" AND $time<"6"){
-            echo "Goede Nacht! <br>";
-            echo "Het is nu ", date("H:i");
-            echo "<body style='background-image: url(img/evening.png)'>";
-
-        }
+        <?php 
+            echo $content, date("H:i");
         ?>
-        </h1>
+</h1>
 </body>
 </html>
